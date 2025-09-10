@@ -1,0 +1,19 @@
+// types/express/index.d.ts
+
+import { User } from '../../models/user';  // Adjust path to your User type
+
+declare global {
+  namespace Express {
+    interface User extends User {}  // Tell Express.User is your app User type
+
+    interface Request {
+      user?: User;                 // user added by passport
+      login(user: User, done: (err?: any) => void): void;
+      logout(done: (err?: any) => void): void;
+      isAuthenticated(): boolean;
+      isUnauthenticated(): boolean;
+    }
+  }
+}
+
+// user saved in request is hydrated document

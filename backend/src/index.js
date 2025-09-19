@@ -5,8 +5,11 @@ import dotenv from "dotenv"
 import cors from "cors"
 import { dbConnect } from "./config/dbConnect.js"
 import authRoutes from "./routes/authRoutes.js"
+import paymentRoutes from "./routes/paymentRoutes.js"
+import userRoutes from "./routes/userRoutes.js"
 import "./config/passportConfig.js"
 import { createCustomMongoStore } from "./config/sessionStore.js"
+import { webhookHandler } from "./controllers/paymentController.js"
 
 dotenv.config()
 dbConnect()
@@ -18,6 +21,13 @@ const corsOptions = {
   credentials: true
 }
 app.use(cors(corsOptions))
+
+app.post(
+  "/api/payment/stripe/webhook",
+  express.raw({ type: "application/json" }),
+  webhookHandler
+);
+
 app.use(json({ limit: "100mb" }))
 app.use(urlencoded({ limit: "100mb", extended: true }))
 
@@ -51,6 +61,8 @@ app.use((req, res, next) => {
 
 // Routes
 app.use("/api/auth", authRoutes)
+app.use("/api/payment", paymentRoutes)
+app.use("/api/user", userRoutes)
 
 const PORT = process.env.PORT || 7002
 app.listen(PORT, () => {

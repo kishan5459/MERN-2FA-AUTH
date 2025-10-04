@@ -8,7 +8,8 @@ export function PaymentCancelled() {
   }
 
   const handleGoHome = () => {
-    navigate('/')
+    // navigate('/')
+    window.close();
   }
 
   return (
@@ -30,7 +31,7 @@ export function PaymentCancelled() {
           onClick={handleGoHome}
           className='w-full bg-gray-100 text-gray-700 px-4 py-2 rounded hover:bg-gray-200'
         >
-          Go to Home Page
+          Close Tab
         </button>
         <button 
           onClick={handleGoBack}

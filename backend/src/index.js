@@ -16,6 +16,8 @@ dbConnect()
 
 const app = express()
 
+app.set("trust proxy", 1);
+
 const corsOptions = {
   origin: [process.env.FRONTEND_BASEURL],
   credentials: true
@@ -45,7 +47,7 @@ app.use(session({
   cookie: {
     maxAge: 1000 * 60 * 60,
     httpOnly: true,
-    sameSite: "strict",
+    sameSite: "none",
     secure: false
   }
 }));

@@ -46,7 +46,10 @@ function HomePage() {
   const handleNewsletterSubscription = async () => {
     try {
       const { url } = (await checkoutNewsletter(user.email)).data
-      window.location.href = url;
+      // window.location.href = url;
+      if(url){
+        window.open(url, "_blank");
+      }
     } catch (error) {
       console.log(error)
       // Show error message if needed

@@ -35,7 +35,7 @@ function HomePage() {
     
     if(session){
       if(session.url){
-        window.location.href = session.url;
+        window.open(session.url, "_blank");
       }
       else {
         console.log("No URL=> Session : ", session)

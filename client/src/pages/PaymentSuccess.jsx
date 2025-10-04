@@ -6,7 +6,8 @@ export function PaymentSuccess() {
   const navigate = useNavigate()
 
   const handleGoHome = () => {
-    navigate('/')
+    // navigate('/')
+    window.close();
   }
 
   return (
@@ -28,7 +29,7 @@ export function PaymentSuccess() {
           onClick={handleGoHome}
           className='w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600'
         >
-          Go to Home Page
+          Close Tab
         </button>
       </div>
 

@@ -52,7 +52,7 @@ function LoginForm({ onLoginSuccess }) {
   const handleLoginWithGoogle = (e) => {
     window.open(
       `${import.meta.env.VITE_BACKEND_BASE_URL}/api/auth/google`,
-      "_self"
+      "_blank"
     )
   }
 

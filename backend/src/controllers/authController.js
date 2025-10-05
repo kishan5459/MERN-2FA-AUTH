@@ -152,6 +152,7 @@ export const reset2FA = async (req, res) => {
 }
 
 export const googleLoginSuccess = async (req, res) => {
+  // Set a temporary cookie to mark Google login
   res.cookie('isGoogleLogin', 'true', {
     httpOnly: false,
     secure: true,      
@@ -159,5 +160,5 @@ export const googleLoginSuccess = async (req, res) => {
     maxAge: 5 * 60 * 1000 
   });
 
-  res.redirect(`${process.env.FRONTEND_BASEURL}/google-success`)
+  res.redirect(`${process.env.FRONTEND_BASEURL}/google-success?login=true`);
 }

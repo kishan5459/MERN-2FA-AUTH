@@ -51,7 +51,7 @@ function LoginForm({ onLoginSuccess }) {
 
   const handleLoginWithGoogle = (e) => {
     window.open(
-      `http://localhost:7001/api/auth/google`,
+      `${import.meta.env.VITE_BACKEND_BASE_URL}/api/auth/google`,
       "_self"
     )
   }

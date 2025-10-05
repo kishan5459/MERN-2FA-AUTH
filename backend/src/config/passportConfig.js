@@ -28,7 +28,7 @@ passport.use(new LocalStrategy(
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "http://localhost:7001/api/auth/google/callback" // it is same as Google callback URL route (2nd route)
+  callbackURL: `${process.env.BACKEND_BASE_URL}/api/auth/google/callback` // it is same as Google callback URL route (2nd route)
 },
 async (accessToken, refreshToken, profile, done) => {
   console.log("Profile : ", profile)

@@ -91,3 +91,8 @@ Check out the live frontend: [https://mern-2fa-auth-client.onrender.com/](https:
 * **State Management:** React Context
 
 ---
+## 🎥 Demo Video
+
+[Watch the demo](https://drive.google.com/file/d/1M7X0WHDHZLRDXMfb4cFH4ruDA_2vesY7/view?usp=drive_link)
+
+change quality to 720p and increase speed(if you need) for better experience while playing video
